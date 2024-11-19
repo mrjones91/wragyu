@@ -1,0 +1,16 @@
+name: my-workflow
+jobs:
+  my-job:
+    name: my-job
+    runs-on: ubuntu-latest
+    steps:
+      # ...
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      # run any `bun` or `bunx` command
+      - run: docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+      - run: docker exec -it ollama ollama pull llama3.2
+      - run: bun install
+      - run: bun index.ts
