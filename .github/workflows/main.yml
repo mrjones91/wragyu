@@ -72,6 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
+          - uses: actions/runner@v4
           - run: docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
           - run: docker exec -it ollama ollama pull llama3.2
           - run: bun install
