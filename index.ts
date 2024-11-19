@@ -24,13 +24,34 @@ const port = 3000;
 
 app.use(express.json());
 
+/*
+if 
+GET
+docker Deploy api/tags
+.length == 0
+
+POST 
+docker Deploy /api/pull
+{
+  "model": "llama3.2"
+}'
+
+docker Deploy /api/pull
+{
+  "model": "nomic-embed-text"
+}'
+
+*/
+
 const ragApplication = await new RAGApplicationBuilder()
-.setModel(new Ollama({ modelName: "llama3.2", baseUrl: 'http://localhost:11434' }))
-.setEmbeddingModel(new OllamaEmbeddings({ model: 'nomic-embed-text', baseUrl: 'http://localhost:11434' }))
+.setModel(new Ollama({ modelName: "llama3.2", baseUrl: 'https://ollama-1-ghnm.onrender.com' }))
+.setEmbeddingModel(new OllamaEmbeddings({ model: 'nomic-embed-text', baseUrl: 'https://ollama-1-ghnm.onrender.com' }))
 .setVectorDatabase(new MongoDb({
     connectionString: `mongodb+srv://${dbuser}:${dbpwd}@cluster0.zep0qmk.mongodb.net/BlightBounties`,
 }))
 .build();
+
+
 
 const Loaders = { 
     'pdf': [PdfLoader, 'filePathOrUrl'],
