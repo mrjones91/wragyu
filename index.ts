@@ -44,8 +44,8 @@ docker Deploy /api/pull
 */
 
 const ragApplication = await new RAGApplicationBuilder()
-.setModel(new Ollama({ modelName: "llama3.2", baseUrl: 'https://ollama-1-ghnm.onrender.com' }))
-.setEmbeddingModel(new OllamaEmbeddings({ model: 'nomic-embed-text', baseUrl: 'https://ollama-1-ghnm.onrender.com' }))
+.setModel(new Ollama({ modelName: "llama3.2", baseUrl: 'https://llama.delightfulwater-6fda5743.centralus.azurecontainerapps.io/' }))
+.setEmbeddingModel(new OllamaEmbeddings({ model: 'nomic-embed-text', baseUrl: 'https://llama.delightfulwater-6fda5743.centralus.azurecontainerapps.io/' }))
 .setVectorDatabase(new MongoDb({
     connectionString: `mongodb+srv://${dbuser}:${dbpwd}@cluster0.zep0qmk.mongodb.net/BlightBounties`,
 }))
