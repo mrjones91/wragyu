@@ -1,6 +1,37 @@
-# wragyu v5
-
+# wRAGyu v5
 ## RAG API app
+
+## Quickstart
+
+```bash
+npm install
+```
+
+```bash
+npm run start
+```
+
+Docs for the EmbedJS library are available @ https://llm-tools.mintlify.app/components/data-sources/overview
+
+The code is commented to aid in understanding, but don't hesitate to ask questions!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### TODO
 
 JS app listening for endpoint connections
 Will optomize for load later

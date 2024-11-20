@@ -2,7 +2,7 @@
   "name": "wragyu",
   "module": "index.ts",
   "scripts": {
-    "start": "bun run index.ts"
+    "start": "node index.mjs"
   },
   "devDependencies": {
     "@types/bun": "latest"

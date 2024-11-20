@@ -20,7 +20,7 @@ const dbconn = process.env.dbConnection || "";
 // console.log(`debug\n${dbuser}\n${dbpwd}\n${dbconn}`);
 
 const app = express();
-const port = 10000;
+const port = 3000;
 
 app.use(express.json());
 
@@ -75,6 +75,7 @@ app.get("/", async (req: Request, res: Response) => {
 
 app.post('/ask', async (req: Request, res: Response) => {
     console.log(req.body);
+    console.log('thank you, let me review the resources you provided');
     req.body.sources.forEach(async (source: { type: string, link: string; }) => {
         if (source.type == 'pdf') {
             await ragApplication.addLoader(new PdfLoader({ filePathOrUrl: source.link }))
@@ -95,6 +96,7 @@ app.post('/ask', async (req: Request, res: Response) => {
             console.log('resource loaded: ');
             console.log(results);
         }
+        console.log('now let me process this, one moment please...');
     });
     const result = await ragApplication.query(req.body.query);
 
@@ -102,7 +104,7 @@ app.post('/ask', async (req: Request, res: Response) => {
 })
   
   app.listen(port, () => {
-    console.log(`Listening @ http://localhost:8080 ...`);
+    console.log(`Listening @ http://localhost:3000 ...`);
   });
 
 // const server = Bun.serve({
