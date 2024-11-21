@@ -3,6 +3,28 @@
 
 ## Quickstart
 
+### Install Ollama 
+Go to [Ollama.com](https://ollama.com) and install for your OS.
+
+```bash
+ollama pull nomic-embed-text
+```
+
+```bash
+ollama pull llama3.2
+```
+
+##### NOTE: if you experience severe performance issues with the app, run the following commands to use Llama 3.2:1B
+
+```bash
+ollama remove llama3.2
+ollama pull llama3.2:1B
+```
+
+### Start the App
+
+Get the .env values from an instructor and run the app via:
+
 ```bash
 npm install
 ```
@@ -11,6 +33,7 @@ npm install
 npm run start
 ```
 
+## Additional Docs
 Docs for the EmbedJS library are available @ https://llm-tools.mintlify.app/components/data-sources/overview
 
 The code is commented to aid in understanding, but don't hesitate to ask questions!
